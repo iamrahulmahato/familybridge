@@ -1,0 +1,196 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Base Styles */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #333;
+  background-color: #f5f7fa;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+.bounce {
+  animation: bounce 0.8s ease-in-out;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Custom Components */
+.card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  @apply shadow-lg;
+  transform: translateY(-2px);
+}
+
+.btn {
+  @apply px-4 py-2 rounded-md font-medium transition-all duration-200;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+}
+
+.btn-success {
+  @apply bg-green-600 text-white hover:bg-green-700;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700;
+}
+
+/* Calendar Styles */
+.fc .fc-toolbar-title {
+  @apply text-xl font-bold text-gray-800;
+}
+
+.fc .fc-button-primary {
+  @apply bg-blue-600 border-blue-600 hover:bg-blue-700;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  @apply bg-blue-50;
+}
+
+/* Task Card Styles */
+.task-card {
+  @apply p-4 rounded-md shadow-sm mb-3 cursor-move;
+  transition: all 0.2s ease;
+}
+
+.task-card:hover {
+  @apply shadow-md;
+}
+
+.task-card.priority-high {
+  @apply border-l-4 border-red-500;
+}
+
+.task-card.priority-medium {
+  @apply border-l-4 border-yellow-500;
+}
+
+.task-card.priority-low {
+  @apply border-l-4 border-green-500;
+}
+
+/* Message Styles */
+.message-bubble {
+  @apply p-3 rounded-lg max-w-xs md:max-w-md;
+}
+
+.message-bubble.sent {
+  @apply bg-blue-600 text-white ml-auto;
+  border-bottom-right-radius: 0;
+}
+
+.message-bubble.received {
+  @apply bg-gray-200 text-gray-800;
+  border-bottom-left-radius: 0;
+}
+
+/* Health Module Styles */
+.medication-pill {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.medication-morning {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.medication-afternoon {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.medication-evening {
+  @apply bg-purple-100 text-purple-800;
+}
+
+.medication-night {
+  @apply bg-indigo-100 text-indigo-800;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .fc .fc-toolbar {
+    @apply flex-col space-y-2;
+  }
+  
+  .message-bubble {
+    @apply max-w-[75%];
+  }
+}
+
+/* Accessibility Styles */
+.high-contrast {
+  --bg-primary: #000000;
+  --text-primary: #ffffff;
+  --bg-secondary: #1a1a1a;
+  --border-color: #ffffff;
+}
+
+.large-text {
+  font-size: 120%;
+  line-height: 1.5;
+}
+
+/* Voice Control Indicator */
+.voice-active {
+  @apply fixed bottom-6 right-6 bg-blue-600 text-white rounded-full p-4 shadow-lg;
+  animation: pulse 2s infinite;
+}
+
+/* Loading Animations */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #4299e1;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+} 
